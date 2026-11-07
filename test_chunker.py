@@ -23,11 +23,10 @@ class ChunkTextTests(unittest.TestCase):
         self.assertEqual(chunk_text("", 3), [])
         self.assertEqual(chunk_text(" \t\n", 3), [])
 
-    def test_nonpositive_limit_raises_value_error(self):
+    def test_nonpositive_limit_returns_empty_list(self):
         for limit in (0, -1, -5):
             with self.subTest(limit=limit):
-                with self.assertRaises(ValueError):
-                    chunk_text("some words", limit)
+                self.assertEqual(chunk_text("some words", limit), [])
 
     def test_one_word_limit(self):
         self.assertEqual(chunk_text("one two", 1), ["one", "two"])
