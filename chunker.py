@@ -8,7 +8,7 @@ def chunk_text(text, max_words):
     each chunk. Their order, spelling, and punctuation are preserved.
     """
     if max_words <= 0:
-        raise ValueError("max_words must be greater than zero")
+        return []
 
     words = text.split()
     return [
